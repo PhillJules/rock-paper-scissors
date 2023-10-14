@@ -27,20 +27,16 @@ function gameSession(computerSelection, playerSelection) {
   if (playerSelection === computerSelection) {
     return `It's a tie! You both chose ${playerSelection}`
 
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-      return "You win! Rock beats scissors"
-
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-      return "You win! Paper beats rock"
-
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-      return "You win! Scissors beats paper"
-
-  } else
-      return `You lose! ${computerSelection} beats ${playerSelection}`;
-
+  } else if (
+  (playerSelection === "rock" && computerSelection === "scissors") ||
+  (playerSelection === "paper" && computerSelection === "rock") ||
+  (playerSelection === "scissors" && computerSelection === "paper")
+  ){
+        return  `You win! ${playerSelection} beats ${computerSelection}`
+} else {
+  return `You lose! ${computerSelection} beats ${playerSelection}`
 }
-
+}
 // the players selection should be case insensitive
 let playerSelection = prompt("Choose rock, paper, or scissors");
 console.log(gameSession(computerSelection, playerSelection));
