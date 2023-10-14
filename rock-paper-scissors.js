@@ -21,4 +21,26 @@ console.log(computerSelection);
 // write a function that plays a single round of rock paper scissors
 // function should take two parameters: playerSelection and computerSelection
 // function should return a string that declares the winner of the round
+function gameSession(computerSelection, playerSelection) {
+  playerSelection = playerSelection.toLowerCase(); // Make player's selection case-insensitive
+
+  if (playerSelection === computerSelection) {
+    return `It's a tie! You both chose ${playerSelection}`
+
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+      return "You win! Rock beats scissors"
+
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+      return "You win! Paper beats rock"
+
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+      return "You win! Scissors beats paper"
+
+  } else
+      return `You lose! ${computerSelection} beats ${playerSelection}`;
+
+}
+
 // the players selection should be case insensitive
+let playerSelection = prompt("Choose rock, paper, or scissors");
+console.log(gameSession(computerSelection, playerSelection));
