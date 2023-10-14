@@ -8,35 +8,62 @@ const winningCombinations = {
 const computerChoices = Object.keys(winningCombinations);
 // need a function called getComputerChoice
 // the function should return a random choice of rock, paper, or scissors
-function getComputerChoice() {
-  let randomizedChoice = Math.floor(Math.random() * computerChoices.length)
 
-  return computerChoices[randomizedChoice];
-}
-
-const computerSelection = getComputerChoice();
-
-console.log(computerSelection);
 
 // write a function that plays a single round of rock paper scissors
 // function should take two parameters: playerSelection and computerSelection
 // function should return a string that declares the winner of the round
-function gameSession(computerSelection, playerSelection) {
-  playerSelection = playerSelection.toLowerCase(); // Make player's selection case-insensitive
 
-  if (playerSelection === computerSelection) {
-    return `It's a tie! You both chose ${playerSelection}`
+let gameCount = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-  } else if (
-  (playerSelection === "rock" && computerSelection === "scissors") ||
-  (playerSelection === "paper" && computerSelection === "rock") ||
-  (playerSelection === "scissors" && computerSelection === "paper")
-  ){
-        return  `You win! ${playerSelection} beats ${computerSelection}`
-} else {
-  return `You lose! ${computerSelection} beats ${playerSelection}`
-}
+while (gameCount < 5 && (playerScore < 3 && computerScore < 3) ) {
+
+  function getComputerChoice() {
+    let randomizedChoice = Math.floor(Math.random() * computerChoices.length)
+
+    return computerChoices[randomizedChoice];
+  }
+
+  const computerSelection = getComputerChoice();
+
+  console.log(computerSelection);
+
+  function gameSession(computerSelection, playerSelection) {
+    playerSelection = playerSelection.toLowerCase(); // Make player's selection case-insensitive
+
+    if (playerSelection === computerSelection) {
+      return `It's a tie! You both chose ${playerSelection}`
+
+    } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+    ){
+      playerScore++;
+
+          return  `You win! ${playerSelection} beats ${computerSelection}`
+
+  } else {
+    computerScore++;
+
+    return `You lose! ${computerSelection} beats ${playerSelection}`
+  }
 }
 // the players selection should be case insensitive
 let playerSelection = prompt("Choose rock, paper, or scissors");
 console.log(gameSession(computerSelection, playerSelection));
+
+gameCount++;
+
+  if  (playerScore === 3) {
+    console.log ("You win best out of 3!")
+  } else if (computerScore === 3) {
+    console.log ("You lose best out of 3!")
+  }
+
+  console.log(gameCount);
+  console.log(playerScore);
+  console.log(computerScore);
+}
