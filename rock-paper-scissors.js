@@ -8,14 +8,9 @@ const winningCombinations = {
 }
 // create a variable that stores computer choices
 const computerChoices = Object.keys(winningCombinations);
-// need a function called getComputerChoice
-// the function should return a random choice of rock, paper, or scissors
-
-
-// write a function that plays a single round of rock paper scissors
-// function should take two parameters: playerSelection and computerSelection
-// function should return a string that declares the winner of the round
-
+// create a variable that stores the player's score
+// create a variable that stores the computer's score
+// create a variable that stores the number of games played
 let gameCount = 0;
 let playerScore = 0;
 let computerScore = 0;
