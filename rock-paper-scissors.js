@@ -45,7 +45,7 @@ function game() {
 
           computerSelection = getComputerChoice();
 
-            // hello
+            // hellohbhvjvhjvbvbj
 
             if (gameCount === 5 && playerScore > computerScore) {
 
