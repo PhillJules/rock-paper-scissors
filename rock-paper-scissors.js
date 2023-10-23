@@ -14,7 +14,15 @@ const computerChoices = Object.keys(winningCombinations);
 let gameCount = 0;
 let playerScore = 0;
 let computerScore = 0;
+let computerSelection = getComputerChoice();
 
+  // create variables that store the values of the buttons
+  // const rockButton = document.querySelector('#rock');
+  // const paperButton = document.querySelector('#paper');
+  // const scissorsButton = document.querySelector('#scissors');
+
+
+  let playerSelection = "";
 
 
 
@@ -27,12 +35,26 @@ let computerScore = 0;
         return computerChoices[randomizedChoice];
       }
 
-      const computerSelection = getComputerChoice();
 
-      console.log(computerSelection);
+      console.log(`Computer chose: ${computerSelection}`);
+
+
+      const buttons = document.querySelectorAll('button');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', gameSession => {
+        playerSelection = button.id;
+        console.log(playerSelection);
+        // const computerSelection = getComputerChoice();
+        result = gameSession(computerSelection, playerSelection);
+        // console.log(result);
+        alert(result);
+
+
 
       function gameSession(computerSelection, playerSelection) {
-          playerSelection = playerSelection.toLowerCase(); // Make player's selection case-insensitive
+          // playerSelection = playerSelection.toLowerCase();
+
 
           if (playerSelection === computerSelection) {
             return `It's a tie! You both chose ${playerSelection}`
@@ -51,10 +73,9 @@ let computerScore = 0;
 
           return `You lose! ${computerSelection} beats ${playerSelection}`
         }
+
+
       }
-      // the players selection should be case insensitive
-      let playerSelection = prompt("Choose rock, paper, or scissors");
-      console.log(gameSession(computerSelection, playerSelection));
 
       gameCount++;
 
@@ -71,6 +92,9 @@ let computerScore = 0;
         console.log(gameCount);
         console.log(playerScore);
         console.log(computerScore);
+
+      })
+    })
   //}
 }
 
