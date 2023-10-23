@@ -30,7 +30,7 @@ function game() {
 
         console.log(`Computer chose: ${computerSelection}`);
 
-
+        const restart = document.getElementById('restart');
         const buttons = document.querySelectorAll('button');
 
       buttons.forEach((button) => {
@@ -40,10 +40,12 @@ function game() {
           // const computerSelection = getComputerChoice();
           result = gameSession(computerSelection, playerSelection);
           // console.log(result);
-          alert(result);
+          // alert(result);
           gameCount++;  // increment the game count
 
           computerSelection = getComputerChoice();
+
+
 
             if (gameCount === 5 && playerScore > computerScore) {
 
@@ -57,14 +59,19 @@ function game() {
             } else if (gameCount < 5 && computerScore === 3) {
                 console.log("You lose best out of 3!")
             }
-          }
+            }
 
             console.log(computerSelection)
 
         function gameSession(computerSelection, playerSelection) {
             // playerSelection = playerSelection.toLowerCase();
 
-
+            if (playerSelection === "restart") {
+              gameCount = 0;
+              playerScore = 0;
+              computerScore = 0;
+              console.log("Game restarted!")
+            } else {
 
             if (playerSelection === computerSelection) {
               return `It's a tie! You both chose ${playerSelection}`
@@ -83,7 +90,7 @@ function game() {
 
             return `You lose! ${computerSelection} beats ${playerSelection}`
           }
-
+         }
 
         }
           console.log(gameCount);
