@@ -16,6 +16,10 @@ function game() {
   let computerScore = 0;
   let computerSelection = getComputerChoice();
   let playerSelection = "";
+
+  let roundResult = document.getElementById('round-result');
+  let gameResult = document.getElementById('game-result');
+
     // create variables that store the values of the buttons
     // const rockButton = document.querySelector('#rock');
     // const paperButton = document.querySelector('#paper');
@@ -45,19 +49,21 @@ function game() {
 
           computerSelection = getComputerChoice();
 
-            // hellohbhvjvhjvbvbj
+
 
             if (gameCount === 5 && playerScore > computerScore) {
+              gameResult.textContent = `You win ${playerScore} to ${computerScore}!`;
 
-              console.log(`You win ${playerScore} to ${computerScore}!`)
             } else if (gameCount === 5 && computerScore > playerScore) {
-              console.log(`You lose ${computerScore} to ${playerScore}!`)
+              gameResult.textContent = `You lose ${computerScore} to ${playerScore}!`;
+
             } else {
               if (gameCount < 5 && playerScore === 3) {
+                gameResult.textContent = `You win ${playerScore} to ${computerScore}!`;
 
-                console.log("You win best out of 3!")
             } else if (gameCount < 5 && computerScore === 3) {
-                console.log("You lose best out of 3!")
+              gameResult.textContent = `You lose ${computerScore} to ${playerScore}!`;
+
             }
             }
 
@@ -71,10 +77,13 @@ function game() {
               playerScore = 0;
               computerScore = 0;
               console.log("Game restarted!")
+              gameResult.textContent = "Game restarted!";
+              roundResult.textContent = "";
             } else {
 
             if (playerSelection === computerSelection) {
-              return `It's a tie! You both chose ${playerSelection}`
+              roundResult.textContent = `It's a tie! You both chose ${playerSelection}`;
+              return
 
             } else if (
             (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -82,17 +91,29 @@ function game() {
             (playerSelection === "scissors" && computerSelection === "paper")
             ) {
                 playerScore++;
+                roundResult.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
 
-                  return  `You win! ${playerSelection} beats ${computerSelection}`
 
               } else {
             computerScore++;
 
-            return `You lose! ${computerSelection} beats ${playerSelection}`
+            roundResult.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+
           }
          }
 
         }
+
+          let playerPoints = document.getElementById('player-points');
+            playerPoints.textContent = `Player: ${playerScore}`;
+          let computerPoints = document.getElementById('computer-points');
+            computerPoints.textContent = `Computer: ${computerScore}`;
+
+
+
+          let round = document.getElementById('round');
+            round.textContent = `Round: ${gameCount}`;
+
           console.log(gameCount);
           console.log(playerScore);
           console.log(computerScore);
