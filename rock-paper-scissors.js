@@ -76,7 +76,6 @@ function game() {
               gameCount = 0;
               playerScore = 0;
               computerScore = 0;
-              console.log("Game restarted!")
               gameResult.textContent = "Game restarted!";
               roundResult.textContent = "";
             } else {
