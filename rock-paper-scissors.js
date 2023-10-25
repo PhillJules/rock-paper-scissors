@@ -76,7 +76,7 @@ function game() {
               gameCount = 0;
               playerScore = 0;
               computerScore = 0;
-              gameResult.textContent = "Game restarted!";
+              gameResult.textContent = "Game restarted!"; // let player know the game has been restarted
               roundResult.textContent = "";
             } else {
 
