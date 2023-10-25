@@ -11,6 +11,7 @@ body {
 
 .banner img {
  width: 100%;
+ margin-top: 8%;
 }
 
 h2 {
@@ -26,13 +27,23 @@ h2 {
   background-color: blanchedalmond;
   width: 50%;
   height: 100%;
-  /* text-align: center; */
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
   font-size: 1.5rem;
 }
 
 .weapon button {
+  background-color: blanchedalmond;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+#restart {
   background-color: blanchedalmond;
   border-radius: 10px;
   border: 2px solid black;
