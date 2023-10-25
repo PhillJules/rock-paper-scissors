@@ -57,6 +57,9 @@ function game() {
             } else if (gameCount === 5 && computerScore > playerScore) {
               gameResult.textContent = `You lose ${computerScore} to ${playerScore}!`;
 
+            } else if (gameCount === 5 && computerScore === playerScore) {
+              gameResult.textContent = `It's a tie! You both scored ${playerScore}!`;
+
             } else {
               if (gameCount < 5 && playerScore === 3) {
                 gameResult.textContent = `You win ${playerScore} to ${computerScore}!`;
@@ -79,7 +82,7 @@ function game() {
               gameResult.textContent = "Game restarted!"; // let player know the game has been restarted
               roundResult.textContent = "";
             } else {
-
+              gameResult.textContent = "";
             if (playerSelection === computerSelection) {
               roundResult.textContent = `It's a tie! You both chose ${playerSelection}`;
               return

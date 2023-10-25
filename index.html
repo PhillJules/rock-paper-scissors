@@ -8,22 +8,30 @@
 <link rel="stylesheet" href="./rps.css">
 </head>
 <body>
-  <h1>Rock! Paper! Scissors!</Scissors></h1>
-  <h2>Choose Your Weapon</h2>
-  <br>
-  <button id="rock">Rock</button>
-  <button id="paper">Paper</button>
-  <button id="scissors">Scissors</button>
-  <br>
-  <div id="scoreBoard">
-
-    <div id="round">Round: 0</div>
-    <div id="round-result"></div>
-    <div id="player-points">Player: 0</div>
-    <div id="computer-points">Computer: 0</div>
-    <div id="game-result"></div>
-
+  <div class="container">
+    <div class="banner">
+      <img src="./assets/rpsbanner.png" alt="Rock paper Scissors banner">
+    </div>
+    <h2>Choose Your Weapon</h2>
+    <br>
+    <div class="weapon">
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <br>
+    <div id="scoreBoard">
+      <div class="points">
+        <div id="round">Round: 0</div>
+        <div id="player-points">Player: 0</div>
+        <div id="computer-points">Computer: 0</div>
+      </div>
+      <div class="commentary">
+        <div id="round-result"></div>
+        <div id="game-result"></div>
+      </div>
+    </div>
+    <button id="restart">Play Again</button>
   </div>
-  <button id="restart">Play Again</button>
 </body>
 </html>
