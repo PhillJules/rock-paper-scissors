@@ -49,18 +49,42 @@ function game() {
 
           computerSelection = getComputerChoice();
 
+          let round = document.getElementById('round');
+          round.textContent = `Round: ${gameCount}`;
+          let playerPoints = document.getElementById('player-points');
+          playerPoints.textContent = `Player: ${playerScore}`;
+        let computerPoints = document.getElementById('computer-points');
+          computerPoints.textContent = `Computer: ${computerScore}`;
 
 
             if (gameCount === 5 && playerScore > computerScore) {
-              gameResult.textContent = `You win ${playerScore} to ${computerScore}!`;
+              gameResult.innerHTML = `You win ${playerScore} to ${computerScore}! Congratulations!`;
+              round.style.visibility = "hidden";
+              gameResult.style.marginRight = "auto";
+              playerPoints.style.visibility = "hidden";
+              computerPoints.style.visibility = "hidden";
 
             } else if (gameCount === 5 && computerScore > playerScore) {
-              gameResult.textContent = `You lose ${computerScore} to ${playerScore}!`;
+              gameResult.textContent = `You lose ${computerScore} to ${playerScore}! Better luck next time!`;
+              playerPoints.style.visibility = "hidden";
+              computerPoints.style.visibility = "hidden";
 
             } else if (gameCount === 5 && computerScore === playerScore) {
-              gameResult.textContent = `It's a tie! You both scored ${playerScore}!`;
+              gameResult.textContent = `It's a tie! You both won ${playerScore} out of 5!`;
 
-            } else {
+              playerPoints.style.visibility = "hidden";
+              computerPoints.style.visibility = "hidden";
+
+            }else if (gameCount > 5) {
+              gameResult.textContent = `Game over!`;
+              gameResult.style.alignContent = "center";
+              round.style.visibility = "hidden";
+              roundResult.style.visibility = "hidden";
+              playerPoints.style.visibility = "hidden";
+              computerPoints.style.visibility = "hidden";
+
+            }
+             else {
               if (gameCount < 5 && playerScore === 3) {
                 gameResult.textContent = `You win ${playerScore} to ${computerScore}!`;
 
@@ -75,13 +99,6 @@ function game() {
         function gameSession(computerSelection, playerSelection) {
             // playerSelection = playerSelection.toLowerCase();
 
-            if (playerSelection === "restart") {
-              gameCount = 0;
-              playerScore = 0;
-              computerScore = 0;
-              gameResult.textContent = "Game restarted!"; // let player know the game has been restarted
-              roundResult.textContent = "";
-            } else {
               gameResult.textContent = "";
             if (playerSelection === computerSelection) {
               roundResult.textContent = `It's a tie! You both chose ${playerSelection}`;
@@ -101,20 +118,19 @@ function game() {
 
             roundResult.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
 
-          }
+
          }
 
         }
 
-          let playerPoints = document.getElementById('player-points');
-            playerPoints.textContent = `Player: ${playerScore}`;
-          let computerPoints = document.getElementById('computer-points');
-            computerPoints.textContent = `Computer: ${computerScore}`;
+
+         function refreshPage(){
+           window.location.reload();
+          }
+
+         document.getElementById("restart").addEventListener("click", refreshPage);
 
 
-
-          let round = document.getElementById('round');
-            round.textContent = `Round: ${gameCount}`;
 
           console.log(gameCount);
           console.log(playerScore);
