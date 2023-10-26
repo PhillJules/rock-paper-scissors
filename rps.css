@@ -53,3 +53,36 @@ h2 {
   font-weight: bold;
   color: black;
 }
+
+button:hover{
+  cursor: pointer;
+}
+
+button:active {
+  background-color: black;
+  color: blanchedalmond;
+  transform: translateY(4px);
+
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  transition: transform 0.3s;
+}
+
+#game-over {
+  text-align: center; /* Center the text horizontally */
+  /* position: absolute; Position it absolutely */
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Move the text back by 50% of its own width and height */
+  font-size: 3rem; /* Adjust font size as needed */
+}
+
+/* Hide the game-over element by default */
+.hidden {
+  display: none;
+}

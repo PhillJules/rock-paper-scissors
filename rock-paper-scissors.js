@@ -56,11 +56,12 @@ function game() {
         let computerPoints = document.getElementById('computer-points');
           computerPoints.textContent = `Computer: ${computerScore}`;
 
+          let gameOver = document.getElementById('game-over');
+
 
             if (gameCount === 5 && playerScore > computerScore) {
               gameResult.innerHTML = `You win ${playerScore} to ${computerScore}! Congratulations!`;
               round.style.visibility = "hidden";
-              gameResult.style.marginRight = "auto";
               playerPoints.style.visibility = "hidden";
               computerPoints.style.visibility = "hidden";
 
@@ -76,8 +77,8 @@ function game() {
               computerPoints.style.visibility = "hidden";
 
             }else if (gameCount > 5) {
-              gameResult.textContent = `Game over!`;
-              gameResult.style.alignContent = "center";
+              gameOver.style.display = 'block';
+              gameOver.style.fontWeight = "bold";
               round.style.visibility = "hidden";
               roundResult.style.visibility = "hidden";
               playerPoints.style.visibility = "hidden";
