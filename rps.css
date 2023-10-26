@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column  ;
+  width: 100%;
 }
 
 .banner img {
@@ -32,7 +33,12 @@ h2 {
   font-size: 1.5rem;
 }
 
+.weapon {
+  display: flex;
+}
+
 .weapon button {
+  flex-direction: row;
   background-color: blanchedalmond;
   border-radius: 10px;
   border: 2px solid black;
